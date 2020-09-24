@@ -105,5 +105,11 @@ def Write_Form():
   except:
     print("BTN submit didn't work")
 
+
+def Close():
+  # browser.quit()
+  quit()
+
 Login()
 Write_Form()
+Close()
