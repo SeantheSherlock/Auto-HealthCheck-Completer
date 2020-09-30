@@ -100,14 +100,12 @@ def Write_Form():
       Btn_Submit.click()
     else:
       print("Ok, Submit canceled")
-      browser.close()
-
   except:
     print("BTN submit didn't work")
 
 
 def Close():
-  # browser.quit()
+  browser.close()
   quit()
 
 Login()
