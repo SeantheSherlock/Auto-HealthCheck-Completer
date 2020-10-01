@@ -15,7 +15,14 @@ url = "https://forms.office.com/Pages/ResponsePage.aspx?id=Nyg_QZRhGkSW1f1SXyNTP
 
 browser.get(url)
 
+print("\nAre you your you want to submit? (y/n)")
+Sure_to_Submit = input(": ").upper()
 
+if Sure_to_Submit == "N":
+  browser.close()
+  quit()
+else:
+  pass
 
 def Login():
 
@@ -89,19 +96,18 @@ def Write_Form():
   except:
     print("Option two didn't work")
 
-  try:
-    Btn_Submit = WebDriverWait(browser, 10).until(
-      EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div/div/div[2]/div[3]/div[1]/button/div"))
-    )
-
-    print("\nDo you sure you want to submit?\n(Y/N)\n")
-    Yes_OR_No = input(": ").upper()
-    if Yes_OR_No == "Y":
+  if Sure_to_Submit == "Y":
+    try:
+      Btn_Submit = WebDriverWait(browser, 10).until(
+        EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div/div/div[2]/div[3]/div[1]/button/div"))
+      )
+      
       Btn_Submit.click()
-    else:
-      print("Ok, Submit canceled")
-  except:
-    print("BTN submit didn't work")
+      
+    except:
+      print("BTN submit didn't work")
+  else:
+    print("Ok I won't submit")
 
 
 def Close():
